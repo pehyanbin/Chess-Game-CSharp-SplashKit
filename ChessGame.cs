@@ -50,7 +50,7 @@ public class ChessGame
 
             SplashKit.DrawText($"{_blackPlayerName}'s turn",
                 !_isWhiteTurn ? Color.Blue : Color.LightGray,
-                "Arial", 20, 20, 780);
+                "Arial", 20, 20, 760);
 
             if (_winner == null)
             {
