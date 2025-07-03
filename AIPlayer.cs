@@ -8,7 +8,7 @@ public class AIPlayer : Player
 {
     private Random _random;
 
-    public AIPlayer(Color color, Board board) : base(color, board)
+    public AIPlayer(Color color, Board board, string name) : base(color, board, name)
     {
         _random = new Random();
     }
@@ -32,7 +32,17 @@ public class AIPlayer : Player
         {
             // Select a random valid move
             var move = moves[_random.Next(moves.Count)];
-            return _board.MovePiece(piece, move.x, move.y);
+
+            // Remember original position
+            int fromX = piece.X;
+            int fromY = piece.Y;
+            Piece captured = _board.PieceAt(move.x, move.y);
+
+            if (_board.MovePiece(piece, move.x, move.y))
+            {
+                LastMove = new Move(piece, fromX, fromY, move.x, move.y, captured != null);
+                return true;
+            }
         }
 
         return false;

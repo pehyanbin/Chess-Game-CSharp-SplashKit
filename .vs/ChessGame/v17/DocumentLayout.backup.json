@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\chessimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:chessimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\chessgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:chessgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\gamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:gamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\gamemain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:gamemain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\selectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:selectionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\chessgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:chessgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\gamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:gamemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\chessimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:chessimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|c:\\users\\pehya\\downloads\\chessgame\\chess-game-csharp-splashkit\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0D5FE9D-0B33-446F-B83E-5400740F5C6F}|ChessGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +54,147 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Board.cs",
+              "RelativeDocumentMoniker": "Board.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Board.cs",
+              "RelativeToolTip": "Board.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAkwD0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T12:43:09.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:30:25.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameMain.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\GameMain.cs",
+              "RelativeDocumentMoniker": "GameMain.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\GameMain.cs",
+              "RelativeToolTip": "GameMain.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:30:13.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SelectionManager.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\SelectionManager.cs",
+              "RelativeDocumentMoniker": "SelectionManager.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\SelectionManager.cs",
+              "RelativeToolTip": "SelectionManager.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAuwF8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:30:05.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AIPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\AIPlayer.cs",
+              "RelativeDocumentMoniker": "AIPlayer.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\AIPlayer.cs",
+              "RelativeToolTip": "AIPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:29:59.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA2wCcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:29:52.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Move.cs",
+              "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Move.cs",
+              "RelativeDocumentMoniker": "Move.cs",
+              "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Move.cs",
+              "RelativeToolTip": "Move.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T11:29:40.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ChessImages.cs",
               "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessImages.cs",
               "RelativeDocumentMoniker": "ChessImages.cs",
               "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessImages.cs",
               "RelativeToolTip": "ChessImages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwA8AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T11:15:11.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "GameMenu.cs",
               "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\GameMenu.cs",
               "RelativeDocumentMoniker": "GameMenu.cs",
               "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\GameMenu.cs",
               "RelativeToolTip": "GameMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T11:15:11.104Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Piece.cs",
               "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Piece.cs",
               "RelativeDocumentMoniker": "Piece.cs",
               "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\Piece.cs",
               "RelativeToolTip": "Piece.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAowGIAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T11:15:10.408Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ChessGame.cs",
               "DocumentMoniker": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessGame.cs",
               "RelativeDocumentMoniker": "ChessGame.cs",
               "ToolTip": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessGame.cs",
               "RelativeToolTip": "ChessGame.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAADkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T11:15:06.837Z",
               "EditorCaption": ""

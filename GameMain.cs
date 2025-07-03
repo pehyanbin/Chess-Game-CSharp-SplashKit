@@ -1,4 +1,4 @@
-// GameMain.cs (UPDATED)
+// GameMain.cs
 using SplashKitSDK;
 
 public class GameMain
@@ -8,15 +8,18 @@ public class GameMain
 
     public void Run()
     {
-        SplashKit.OpenWindow("2D Chess Game", 800, 800);
+        SplashKit.OpenWindow("2D Chess Game", 800, 780);
 
         // Load chess piece images
         ChessImages.LoadImages();
 
         _menu = new GameMenu();
-        GameMode mode = _menu.Show();
+        var result = _menu.Show();
+        GameMode mode = result.mode;
+        string whitePlayer = result.whitePlayer;
+        string blackPlayer = result.blackPlayer;
 
-        _chessGame = new ChessGame(mode);
+        _chessGame = new ChessGame(mode, whitePlayer, blackPlayer);
         _chessGame.Start();
 
         SplashKit.CloseWindow("2D Chess Game");

@@ -10,6 +10,14 @@ public class SelectionManager
     public bool MoveMade { get; private set; }
     private List<(int x, int y)> _validMoves = new List<(int, int)>();
 
+    // Move tracking
+    public Piece MovedPiece { get; private set; }
+    public int MovedFromX { get; private set; }
+    public int MovedFromY { get; private set; }
+    public int MovedToX { get; private set; }
+    public int MovedToY { get; private set; }
+    public Piece CapturedPiece { get; private set; }
+
     public SelectionManager(Board board, Color playerColor)
     {
         _board = board;
@@ -19,6 +27,8 @@ public class SelectionManager
     public void Update()
     {
         MoveMade = false;
+        MovedPiece = null;
+        CapturedPiece = null;
 
         if (SplashKit.MouseClicked(MouseButton.LeftButton))
         {
@@ -41,9 +51,22 @@ public class SelectionManager
                 // Check if clicked position is a valid move
                 if (_validMoves.Contains((col, row)))
                 {
+                    // Remember original position
+                    int fromX = _selectedPiece.X;
+                    int fromY = _selectedPiece.Y;
+
+                    // Check for capture
+                    Piece target = _board.PieceAt(col, row);
+
                     if (_board.MovePiece(_selectedPiece, col, row))
                     {
                         MoveMade = true;
+                        MovedPiece = _selectedPiece;
+                        MovedFromX = fromX;
+                        MovedFromY = fromY;
+                        MovedToX = col;
+                        MovedToY = row;
+                        CapturedPiece = target;
                     }
                 }
                 // Deselect if clicked elsewhere
