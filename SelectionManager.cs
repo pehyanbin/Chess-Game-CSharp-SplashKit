@@ -11,7 +11,6 @@ public class SelectionManager
     private List<(int x, int y)> _validMoves = new List<(int, int)>();
     private ChessGame _game;
 
-    // Move tracking
     public Piece MovedPiece { get; private set; }
     public int MovedFromX { get; private set; }
     public int MovedFromY { get; private set; }
@@ -52,9 +51,8 @@ public class SelectionManager
                 {
                     int fromX = _selectedPiece.X;
                     int fromY = _selectedPiece.Y;
-                    Piece target = _board.PieceAt(col, row);
 
-                    if (_board.MovePiece(_selectedPiece, col, row))
+                    if (_board.MovePiece(_selectedPiece, col, row, out Piece captured))
                     {
                         MoveMade = true;
                         MovedPiece = _selectedPiece;
@@ -62,9 +60,8 @@ public class SelectionManager
                         MovedFromY = fromY;
                         MovedToX = col;
                         MovedToY = row;
-                        CapturedPiece = target;
+                        CapturedPiece = captured;
 
-                        // Check for pawn promotion
                         if (_selectedPiece.Type == "pawn" && (row == 0 || row == 7))
                         {
                             _game.SetPromotingPawn(_selectedPiece);

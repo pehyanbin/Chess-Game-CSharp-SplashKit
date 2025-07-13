@@ -35,6 +35,7 @@ public class Player
                 _selector.MovedToX,
                 _selector.MovedToY,
                 _selector.CapturedPiece != null,
+                _selector.CapturedPiece,
                 isCastling
             );
         }

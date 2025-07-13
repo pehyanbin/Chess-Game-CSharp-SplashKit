@@ -7,9 +7,9 @@ public class Piece
 {
     public string Type { get; }
     public Color Color { get; }
-    public int X { get; private set; }
-    public int Y { get; private set; }
-    public bool HasMoved { get; private set; }
+    public int X { get; set; }
+    public int Y { get; set; }
+    public bool HasMoved { get; set; }
 
     public Piece(string type, Color color, int x, int y)
     {
@@ -18,13 +18,6 @@ public class Piece
         X = x;
         Y = y;
         HasMoved = false;
-    }
-
-    public void MoveTo(int x, int y)
-    {
-        X = x;
-        Y = y;
-        HasMoved = true;
     }
 
     public void Draw()

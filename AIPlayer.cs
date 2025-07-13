@@ -8,7 +8,8 @@ public class AIPlayer : Player
 {
     private Random _random;
 
-    public AIPlayer(Color color, Board board, string name, ChessGame game) : base(color, board, name, game)
+    public AIPlayer(Color color, Board board, string name, ChessGame game)
+        : base(color, board, name, game)
     {
         _random = new Random();
     }
@@ -32,12 +33,12 @@ public class AIPlayer : Player
 
             int fromX = piece.X;
             int fromY = piece.Y;
-            Piece captured = _board.PieceAt(move.x, move.y);
             bool isCastling = piece.Type == "king" && Math.Abs(move.x - fromX) == 2;
 
-            if (_board.MovePiece(piece, move.x, move.y))
+            if (_board.MovePiece(piece, move.x, move.y, out Piece captured))
             {
-                LastMove = new Move(piece, fromX, fromY, move.x, move.y, captured != null, isCastling);
+                LastMove = new Move(piece, fromX, fromY, move.x, move.y,
+                                 captured != null, captured, isCastling);
                 return true;
             }
         }
