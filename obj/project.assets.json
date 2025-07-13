@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessGame.csproj",
+      "projectUniqueName": "C:\\Users\\pehya\\Downloads\\chess game\\Chess-Game-CSharp-SplashKit\\ChessGame.csproj",
       "projectName": "ChessGame",
-      "projectPath": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\ChessGame.csproj",
+      "projectPath": "C:\\Users\\pehya\\Downloads\\chess game\\Chess-Game-CSharp-SplashKit\\ChessGame.csproj",
       "packagesPath": "C:\\Users\\pehya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pehya\\Downloads\\ChessGame\\Chess-Game-CSharp-SplashKit\\obj\\",
+      "outputPath": "C:\\Users\\pehya\\Downloads\\chess game\\Chess-Game-CSharp-SplashKit\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pehya\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,7 +16,6 @@ public class Board
 
     public void SetupPieces()
     {
-        // Clear existing pieces
         _pieces.Clear();
 
         // Pawns
@@ -85,12 +84,37 @@ public class Board
         if (!piece.IsValidMove(toX, toY, this))
             return false;
 
+        bool isCastling = piece.Type == "king" && Math.Abs(toX - piece.X) == 2;
+        bool isPromotion = piece.Type == "pawn" && (toY == 0 || toY == 7);
+
+        // Handle castling
+        if (isCastling)
+        {
+            int rookX = toX > piece.X ? 7 : 0;
+            int newRookX = toX > piece.X ? toX - 1 : toX + 1;
+
+            Piece rook = PieceAt(rookX, piece.Y);
+            if (rook == null || rook.Type != "rook" || rook.HasMoved)
+                return false;
+
+            rook.MoveTo(newRookX, piece.Y);
+        }
+
         Piece target = PieceAt(toX, toY);
         if (target != null && target.Color != piece.Color)
             _pieces.Remove(target);
 
         piece.MoveTo(toX, toY);
+
         return true;
+    }
+
+    public void PromotePawn(Piece pawn, string newType)
+    {
+        if (pawn == null || pawn.Type != "pawn") return;
+
+        _pieces.Remove(pawn);
+        _pieces.Add(new Piece(newType, pawn.Color, pawn.X, pawn.Y));
     }
 
     public Color? CheckForWinner()
@@ -119,7 +143,6 @@ public class Board
         int stepX = dx == 0 ? 0 : dx / Math.Abs(dx);
         int stepY = dy == 0 ? 0 : dy / Math.Abs(dy);
 
-        // Check all squares between start and end (excluding start and end)
         for (int i = 1; i < steps; i++)
         {
             int checkX = fromX + i * stepX;

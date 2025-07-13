@@ -32,14 +32,12 @@ public class Piece
         Bitmap pieceImage = ChessImages.GetImage(Type, Color);
         if (pieceImage != null)
         {
-            // Center the image in the square
             float drawX = X * 100 + (100 - pieceImage.Width) / 2;
             float drawY = Y * 100 + (100 - pieceImage.Height) / 2;
             SplashKit.DrawBitmap(pieceImage, drawX, drawY);
         }
         else
         {
-            // Fallback to text if image not found
             string label = (Type == "knight" ? "N" : Type[0].ToString()).ToUpper();
             SplashKit.DrawText(label, Color == Color.White ? Color.White : Color.Black,
                 "Arial", 36, X * 100 + 35, Y * 100 + 30);
@@ -48,11 +46,9 @@ public class Piece
 
     public bool IsValidMove(int toX, int toY, Board board)
     {
-        // Can't move to the same square
         if (X == toX && Y == toY) return false;
 
         Piece target = board.PieceAt(toX, toY);
-        // Can't capture own pieces
         if (target != null && target.Color == Color) return false;
 
         int dx = toX - X;
@@ -93,7 +89,20 @@ public class Piece
                 return board.IsPathClear(X, Y, toX, toY);
 
             case "king":
-                return absDx <= 1 && absDy <= 1;
+                // Normal king move
+                if (absDx <= 1 && absDy <= 1)
+                    return true;
+
+                // Castling check
+                if (!HasMoved && absDy == 0 && absDx == 2 && Y == (Color == Color.White ? 7 : 0))
+                {
+                    int rookX = toX > X ? 7 : 0;
+                    Piece rook = board.PieceAt(rookX, Y);
+
+                    return rook != null && rook.Type == "rook" && !rook.HasMoved &&
+                           board.IsPathClear(X, Y, rookX, Y);
+                }
+                return false;
 
             case "knight":
                 return (absDx == 2 && absDy == 1) || (absDx == 1 && absDy == 2);

@@ -17,6 +17,10 @@ public class ChessGame
     private string _blackPlayerName;
     private string _moveHistory = "";
 
+    // Promotion state
+    private Piece _promotingPawn = null;
+    private string[] _promotionOptions = new[] { "queen", "rook", "bishop", "knight" };
+
     public ChessGame(GameMode mode, string whitePlayerName, string blackPlayerName)
     {
         _mode = mode;
@@ -24,12 +28,12 @@ public class ChessGame
         _whitePlayerName = whitePlayerName;
         _blackPlayerName = blackPlayerName;
 
-        _whitePlayer = new Player(Color.White, _board, whitePlayerName);
+        _whitePlayer = new Player(Color.White, _board, whitePlayerName, this);
 
         if (_mode == GameMode.TwoPlayer)
-            _blackPlayer = new Player(Color.Black, _board, blackPlayerName);
+            _blackPlayer = new Player(Color.Black, _board, blackPlayerName, this);
         else
-            _blackPlayer = new AIPlayer(Color.Black, _board, "AI Player");
+            _blackPlayer = new AIPlayer(Color.Black, _board, "AI Player", this);
 
         _isWhiteTurn = true;
     }
@@ -52,13 +56,17 @@ public class ChessGame
                 !_isWhiteTurn ? Color.Blue : Color.LightGray,
                 "Arial", 20, 20, 760);
 
-            if (_winner == null)
+            if (_promotingPawn != null)
+            {
+                DrawPromotionMenu();
+                HandlePromotionSelection();
+            }
+            else if (_winner == null)
             {
                 if (_isWhiteTurn)
                 {
                     if (_whitePlayer.HandleTurn())
                     {
-                        // Start timer on first move
                         if (_gameStartTime == null)
                             _gameStartTime = DateTime.Now;
 
@@ -81,19 +89,16 @@ public class ChessGame
             }
             else
             {
-                // Record end time once
                 if (_gameEndTime == null)
                 {
                     _gameEndTime = DateTime.Now;
                     SaveGameRecord();
                 }
 
-                // Display winner
                 string winnerName = _winner == Color.White ? _whitePlayerName : _blackPlayerName;
                 SplashKit.DrawText($"{winnerName} wins!",
                     Color.Red, "Arial", 32, 300, 750);
 
-                // Display game time
                 if (_gameStartTime.HasValue && _gameEndTime.HasValue)
                 {
                     TimeSpan duration = _gameEndTime.Value - _gameStartTime.Value;
@@ -106,6 +111,53 @@ public class ChessGame
         }
     }
 
+    private void DrawPromotionMenu()
+    {
+        int startX = 300;
+        int startY = 300;
+        int optionSize = 50;
+
+        SplashKit.FillRectangle(Color.White, startX - 10, startY - 30,
+            _promotionOptions.Length * optionSize + 20, optionSize + 40);
+        SplashKit.DrawText("Promote to:", Color.Black, "Arial", 20, startX, startY - 25);
+
+        for (int i = 0; i < _promotionOptions.Length; i++)
+        {
+            string pieceType = _promotionOptions[i];
+            Bitmap img = ChessImages.GetImage(pieceType, _promotingPawn.Color);
+            SplashKit.DrawBitmap(img, startX + i * optionSize, startY);
+        }
+    }
+
+    private void HandlePromotionSelection()
+    {
+        if (SplashKit.MouseClicked(MouseButton.LeftButton))
+        {
+            float mouseX = SplashKit.MouseX();
+            float mouseY = SplashKit.MouseY();
+
+            int startX = 300;
+            int startY = 300;
+            int optionSize = 50;
+
+            for (int i = 0; i < _promotionOptions.Length; i++)
+            {
+                if (mouseX >= startX + i * optionSize && mouseX <= startX + (i + 1) * optionSize &&
+                    mouseY >= startY && mouseY <= startY + optionSize)
+                {
+                    _board.PromotePawn(_promotingPawn, _promotionOptions[i]);
+                    _promotingPawn = null;
+                    break;
+                }
+            }
+        }
+    }
+
+    public void SetPromotingPawn(Piece pawn)
+    {
+        _promotingPawn = pawn;
+    }
+
     private void RecordMove(string playerName, Move move)
     {
         if (move.IsValid)
@@ -116,6 +168,8 @@ public class ChessGame
 
             string moveRecord = $"{playerName}: {pieceName} from {move.FromX},{move.FromY} to {move.ToX},{move.ToY}";
             if (move.Capture) moveRecord += " (capture)";
+            if (move.IsCastling) moveRecord += " (castling)";
+            if (move.IsPromotion) moveRecord += $" (promoted to {move.PromotionType})";
 
             Console.WriteLine(moveRecord);
             _moveHistory += moveRecord + Environment.NewLine;

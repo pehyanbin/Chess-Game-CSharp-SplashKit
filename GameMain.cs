@@ -8,7 +8,7 @@ public class GameMain
 
     public void Run()
     {
-        SplashKit.OpenWindow("2D Chess Game", 800, 780);
+        SplashKit.OpenWindow("2D Chess Game", 800, 800);
 
         // Load chess piece images
         ChessImages.LoadImages();

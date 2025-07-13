@@ -9,11 +9,11 @@ public class Player
     public string Name { get; }
     public Move LastMove { get; protected set; }
 
-    public Player(Color color, Board board, string name)
+    public Player(Color color, Board board, string name, ChessGame game)
     {
         _color = color;
         _board = board;
-        _selector = new SelectionManager(board, _color);
+        _selector = new SelectionManager(board, _color, game);
         Name = name;
         LastMove = Move.Invalid;
     }
@@ -25,13 +25,17 @@ public class Player
 
         if (_selector.MoveMade)
         {
+            bool isCastling = _selector.MovedPiece.Type == "king" &&
+                            Math.Abs(_selector.MovedToX - _selector.MovedFromX) == 2;
+
             LastMove = new Move(
                 _selector.MovedPiece,
                 _selector.MovedFromX,
                 _selector.MovedFromY,
                 _selector.MovedToX,
                 _selector.MovedToY,
-                _selector.CapturedPiece != null
+                _selector.CapturedPiece != null,
+                isCastling
             );
         }
 
