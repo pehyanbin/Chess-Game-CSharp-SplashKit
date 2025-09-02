@@ -94,12 +94,12 @@ public class Board
             int newRookX = toX > piece.X ? toX - 1 : toX + 1;
 
             Piece rook = PieceAt(rookX, piece.Y);
-            if (rook == null || rook.Type != "rook" || rook.HasMoved)
+            if (rook == null || rook.Type != "rook" || rook.MoveCount != 0)
                 return false;
 
             rook.X = newRookX;
             rook.Y = piece.Y;
-            rook.HasMoved = true;
+            rook.MoveCount++;
         }
 
         capturedPiece = PieceAt(toX, toY);
@@ -108,7 +108,7 @@ public class Board
 
         piece.X = toX;
         piece.Y = toY;
-        piece.HasMoved = true;
+        piece.MoveCount++;
 
         return true;
     }
@@ -120,7 +120,7 @@ public class Board
         // Move the piece back
         move.Piece.X = move.FromX;
         move.Piece.Y = move.FromY;
-        move.Piece.HasMoved = move.OriginalHasMovedState;
+        move.Piece.MoveCount = move.OriginalMoveCount;
 
         // Restore captured piece
         if (move.Capture && move.CapturedPiece != null)
@@ -139,7 +139,7 @@ public class Board
             {
                 rook.X = originalRookX;
                 rook.Y = move.FromY;
-                rook.HasMoved = false;
+                rook.MoveCount = 0;
             }
         }
 
@@ -149,7 +149,7 @@ public class Board
             _pieces.Remove(move.Piece);
             move.OriginalPiece.X = move.FromX;
             move.OriginalPiece.Y = move.FromY;
-            move.OriginalPiece.HasMoved = move.OriginalHasMovedState;
+            move.OriginalPiece.MoveCount = move.OriginalMoveCount;
             _pieces.Add(move.OriginalPiece);
         }
 
@@ -161,7 +161,7 @@ public class Board
         if (pawn == null || pawn.Type != "pawn") return;
 
         Piece newPiece = new Piece(newType, pawn.Color, pawn.X, pawn.Y);
-        newPiece.HasMoved = true;
+        newPiece.MoveCount = pawn.MoveCount;
         _pieces.Remove(pawn);
         _pieces.Add(newPiece);
     }

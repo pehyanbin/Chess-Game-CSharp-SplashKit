@@ -9,7 +9,7 @@ public class Piece
     public Color Color { get; }
     public int X { get; set; }
     public int Y { get; set; }
-    public bool HasMoved { get; set; }
+    public int MoveCount { get; set; }
 
     public Piece(string type, Color color, int x, int y)
     {
@@ -17,7 +17,7 @@ public class Piece
         Color = color;
         X = x;
         Y = y;
-        HasMoved = false;
+        MoveCount = 0;
     }
 
     public void Draw()
@@ -59,7 +59,7 @@ public class Piece
                     return true;
 
                 // First double move
-                if (dx == 0 && !HasMoved && dy == 2 * forward &&
+                if (dx == 0 && MoveCount == 0 && dy == 2 * forward &&
                     target == null && board.PieceAt(X, Y + forward) == null)
                     return true;
 
@@ -87,12 +87,12 @@ public class Piece
                     return true;
 
                 // Castling check
-                if (!HasMoved && absDy == 0 && absDx == 2 && Y == (Color == Color.White ? 7 : 0))
+                if (MoveCount == 0 && absDy == 0 && absDx == 2 && Y == (Color == Color.White ? 7 : 0))
                 {
                     int rookX = toX > X ? 7 : 0;
                     Piece rook = board.PieceAt(rookX, Y);
 
-                    return rook != null && rook.Type == "rook" && !rook.HasMoved &&
+                    return rook != null && rook.Type == "rook" && rook.MoveCount == 0 &&
                            board.IsPathClear(X, Y, rookX, Y);
                 }
                 return false;

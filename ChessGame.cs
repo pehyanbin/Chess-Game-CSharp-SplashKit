@@ -164,7 +164,7 @@ public class ChessGame
                     mouseY >= startY && mouseY <= startY + optionSize)
                 {
                     Piece originalPawn = new Piece("pawn", _promotingPawn.Color, _promotingPawn.X, _promotingPawn.Y);
-                    originalPawn.HasMoved = _promotingPawn.HasMoved;
+                    originalPawn.MoveCount = _moveHistoryStack.Peek().OriginalMoveCount;
 
                     _board.PromotePawn(_promotingPawn, _promotionOptions[i]);
 
@@ -174,6 +174,8 @@ public class ChessGame
                         lastMove.IsPromotion = true;
                         lastMove.PromotionType = _promotionOptions[i];
                         lastMove.OriginalPiece = originalPawn;
+                        Piece newPiece = _board.PieceAt(lastMove.ToX, lastMove.ToY);
+                        lastMove.Piece = newPiece;
                         _moveHistoryStack.Push(lastMove);
                     }
 

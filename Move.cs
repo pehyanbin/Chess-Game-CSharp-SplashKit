@@ -13,9 +13,9 @@ public struct Move
     public bool IsPromotion;
     public string PromotionType;
     public Piece OriginalPiece;
-    public bool OriginalHasMovedState;
+    public int OriginalMoveCount;
 
-    public Move(Piece piece, int fromX, int fromY, int toX, int toY, bool capture, Piece capturedPiece, bool isCastling = false)
+    public Move(Piece piece, int fromX, int fromY, int toX, int toY, bool capture, Piece capturedPiece, bool isCastling, int originalMoveCount)
     {
         Piece = piece;
         FromX = fromX;
@@ -29,16 +29,15 @@ public struct Move
         IsPromotion = false;
         PromotionType = null;
         OriginalPiece = null;
-        OriginalHasMovedState = piece.HasMoved;
+        OriginalMoveCount = originalMoveCount;
     }
 
-    public Move(Piece piece, int fromX, int fromY, int toX, int toY, bool capture, Piece capturedPiece, string promotionType, Piece originalPiece)
-        : this(piece, fromX, fromY, toX, toY, capture, capturedPiece)
+    public Move(Piece piece, int fromX, int fromY, int toX, int toY, bool capture, Piece capturedPiece, string promotionType, Piece originalPiece, int originalMoveCount)
+        : this(piece, fromX, fromY, toX, toY, capture, capturedPiece, false, originalMoveCount)
     {
         IsPromotion = true;
         PromotionType = promotionType;
         OriginalPiece = originalPiece;
-        OriginalHasMovedState = originalPiece.HasMoved;
     }
 
     public static Move Invalid = new Move

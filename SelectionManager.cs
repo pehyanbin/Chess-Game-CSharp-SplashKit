@@ -17,6 +17,7 @@ public class SelectionManager
     public int MovedToX { get; private set; }
     public int MovedToY { get; private set; }
     public Piece CapturedPiece { get; private set; }
+    public int MovedOriginalMoveCount { get; private set; }
 
     public SelectionManager(Board board, Color playerColor, ChessGame game)
     {
@@ -51,6 +52,7 @@ public class SelectionManager
                 {
                     int fromX = _selectedPiece.X;
                     int fromY = _selectedPiece.Y;
+                    int originalMoveCount = _selectedPiece.MoveCount;
 
                     if (_board.MovePiece(_selectedPiece, col, row, out Piece captured))
                     {
@@ -61,6 +63,7 @@ public class SelectionManager
                         MovedToX = col;
                         MovedToY = row;
                         CapturedPiece = captured;
+                        MovedOriginalMoveCount = originalMoveCount;
 
                         if (_selectedPiece.Type == "pawn" && (row == 0 || row == 7))
                         {

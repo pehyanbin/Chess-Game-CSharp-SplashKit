@@ -34,11 +34,12 @@ public class AIPlayer : Player
             int fromX = piece.X;
             int fromY = piece.Y;
             bool isCastling = piece.Type == "king" && Math.Abs(move.x - fromX) == 2;
+            int originalMoveCount = piece.MoveCount;
 
             if (_board.MovePiece(piece, move.x, move.y, out Piece captured))
             {
                 LastMove = new Move(piece, fromX, fromY, move.x, move.y,
-                                 captured != null, captured, isCastling);
+                                 captured != null, captured, isCastling, originalMoveCount);
                 return true;
             }
         }
