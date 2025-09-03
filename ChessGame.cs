@@ -2,6 +2,7 @@
 using SplashKitSDK;
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 public class ChessGame
 {
@@ -17,9 +18,9 @@ public class ChessGame
     private string _blackPlayerName;
     private string _moveHistory = "";
 
-    // Promotion state
     private Piece _promotingPawn = null;
     private string[] _promotionOptions = new[] { "queen", "rook", "bishop", "knight" };
+    private Stack<Move> _moveHistoryStack = new Stack<Move>();
 
     public ChessGame(GameMode mode, string whitePlayerName, string blackPlayerName)
     {
@@ -45,9 +46,13 @@ public class ChessGame
             SplashKit.ProcessEvents();
             SplashKit.ClearScreen(Color.White);
 
+            if (SplashKit.KeyTyped(KeyCode.UKey) && _moveHistoryStack.Count > 0 && _winner == null)
+            {
+                UndoLastMove();
+            }
+
             _board.Draw();
 
-            // Display player names and turn indicator
             SplashKit.DrawText($"{_whitePlayerName}'s turn",
                 _isWhiteTurn ? Color.Blue : Color.LightGray,
                 "Arial", 20, 20, 750);
@@ -55,6 +60,8 @@ public class ChessGame
             SplashKit.DrawText($"{_blackPlayerName}'s turn",
                 !_isWhiteTurn ? Color.Blue : Color.LightGray,
                 "Arial", 20, 20, 760);
+
+            SplashKit.DrawText("Press U to undo", Color.Black, "Arial", 16, 20, 720);
 
             if (_promotingPawn != null)
             {
@@ -111,6 +118,17 @@ public class ChessGame
         }
     }
 
+    private void UndoLastMove()
+    {
+        if (_moveHistoryStack.Count == 0) return;
+
+        Move lastMove = _moveHistoryStack.Pop();
+        _board.UndoMove(lastMove);
+
+        _isWhiteTurn = !_isWhiteTurn;
+        _promotingPawn = null;
+    }
+
     private void DrawPromotionMenu()
     {
         int startX = 300;
@@ -133,8 +151,8 @@ public class ChessGame
     {
         if (SplashKit.MouseClicked(MouseButton.LeftButton))
         {
-            float mouseX = SplashKit.MouseX();
-            float mouseY = SplashKit.MouseY();
+            int mouseX = (int)SplashKit.MouseX();
+            int mouseY = (int)SplashKit.MouseY();
 
             int startX = 300;
             int startY = 300;
@@ -145,7 +163,22 @@ public class ChessGame
                 if (mouseX >= startX + i * optionSize && mouseX <= startX + (i + 1) * optionSize &&
                     mouseY >= startY && mouseY <= startY + optionSize)
                 {
+                    Piece originalPawn = new Piece("pawn", _promotingPawn.Color, _promotingPawn.X, _promotingPawn.Y);
+                    originalPawn.MoveCount = _moveHistoryStack.Peek().OriginalMoveCount;
+
                     _board.PromotePawn(_promotingPawn, _promotionOptions[i]);
+
+                    if (_moveHistoryStack.Count > 0)
+                    {
+                        Move lastMove = _moveHistoryStack.Pop();
+                        lastMove.IsPromotion = true;
+                        lastMove.PromotionType = _promotionOptions[i];
+                        lastMove.OriginalPiece = originalPawn;
+                        Piece newPiece = _board.PieceAt(lastMove.ToX, lastMove.ToY);
+                        lastMove.Piece = newPiece;
+                        _moveHistoryStack.Push(lastMove);
+                    }
+
                     _promotingPawn = null;
                     break;
                 }
@@ -162,6 +195,8 @@ public class ChessGame
     {
         if (move.IsValid)
         {
+            _moveHistoryStack.Push(move);
+
             string pieceName = move.Piece.Type;
             if (pieceName == "knight") pieceName = "N";
             else pieceName = pieceName.Substring(0, 1).ToUpper();

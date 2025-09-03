@@ -79,32 +79,79 @@ public class Board
         return null;
     }
 
-    public bool MovePiece(Piece piece, int toX, int toY)
+    public bool MovePiece(Piece piece, int toX, int toY, out Piece capturedPiece)
     {
+        capturedPiece = null;
         if (!piece.IsValidMove(toX, toY, this))
             return false;
 
         bool isCastling = piece.Type == "king" && Math.Abs(toX - piece.X) == 2;
         bool isPromotion = piece.Type == "pawn" && (toY == 0 || toY == 7);
 
-        // Handle castling
         if (isCastling)
         {
             int rookX = toX > piece.X ? 7 : 0;
             int newRookX = toX > piece.X ? toX - 1 : toX + 1;
 
             Piece rook = PieceAt(rookX, piece.Y);
-            if (rook == null || rook.Type != "rook" || rook.HasMoved)
+            if (rook == null || rook.Type != "rook" || rook.MoveCount != 0)
                 return false;
 
-            rook.MoveTo(newRookX, piece.Y);
+            rook.X = newRookX;
+            rook.Y = piece.Y;
+            rook.MoveCount++;
         }
 
-        Piece target = PieceAt(toX, toY);
-        if (target != null && target.Color != piece.Color)
-            _pieces.Remove(target);
+        capturedPiece = PieceAt(toX, toY);
+        if (capturedPiece != null && capturedPiece.Color != piece.Color)
+            _pieces.Remove(capturedPiece);
 
-        piece.MoveTo(toX, toY);
+        piece.X = toX;
+        piece.Y = toY;
+        piece.MoveCount++;
+
+        return true;
+    }
+
+    public bool UndoMove(Move move)
+    {
+        if (!move.IsValid) return false;
+
+        // Move the piece back
+        move.Piece.X = move.FromX;
+        move.Piece.Y = move.FromY;
+        move.Piece.MoveCount = move.OriginalMoveCount;
+
+        // Restore captured piece
+        if (move.Capture && move.CapturedPiece != null)
+        {
+            _pieces.Add(move.CapturedPiece);
+        }
+
+        // Handle castling
+        if (move.IsCastling)
+        {
+            int rookX = move.ToX > move.FromX ? move.ToX - 1 : move.ToX + 1;
+            int originalRookX = move.ToX > move.FromX ? 7 : 0;
+
+            Piece rook = PieceAt(rookX, move.FromY);
+            if (rook != null && rook.Type == "rook")
+            {
+                rook.X = originalRookX;
+                rook.Y = move.FromY;
+                rook.MoveCount = 0;
+            }
+        }
+
+        // Handle promotion
+        if (move.IsPromotion && move.OriginalPiece != null)
+        {
+            _pieces.Remove(move.Piece);
+            move.OriginalPiece.X = move.FromX;
+            move.OriginalPiece.Y = move.FromY;
+            move.OriginalPiece.MoveCount = move.OriginalMoveCount;
+            _pieces.Add(move.OriginalPiece);
+        }
 
         return true;
     }
@@ -113,8 +160,10 @@ public class Board
     {
         if (pawn == null || pawn.Type != "pawn") return;
 
+        Piece newPiece = new Piece(newType, pawn.Color, pawn.X, pawn.Y);
+        newPiece.MoveCount = pawn.MoveCount;
         _pieces.Remove(pawn);
-        _pieces.Add(new Piece(newType, pawn.Color, pawn.X, pawn.Y));
+        _pieces.Add(newPiece);
     }
 
     public Color? CheckForWinner()

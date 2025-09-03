@@ -42,3 +42,17 @@ C:\Users\pehya\Downloads\chess game\Chess-Game-CSharp-SplashKit\obj\Debug\net8.0
 C:\Users\pehya\Downloads\chess game\Chess-Game-CSharp-SplashKit\obj\Debug\net8.0\ChessGame.pdb
 C:\Users\pehya\Downloads\chess game\Chess-Game-CSharp-SplashKit\obj\Debug\net8.0\ChessGame.genruntimeconfig.cache
 C:\Users\pehya\Downloads\chess game\Chess-Game-CSharp-SplashKit\obj\Debug\net8.0\ref\ChessGame.dll
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\bin\Debug\net8.0\ChessGame.exe
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\bin\Debug\net8.0\ChessGame.deps.json
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\bin\Debug\net8.0\ChessGame.runtimeconfig.json
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\bin\Debug\net8.0\ChessGame.dll
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\bin\Debug\net8.0\ChessGame.pdb
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.AssemblyInfoInputs.cache
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.AssemblyInfo.cs
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.csproj.CoreCompileInputs.cache
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.dll
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\refint\ChessGame.dll
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.pdb
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ChessGame.genruntimeconfig.cache
+C:\Users\pehya\Downloads\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\Chess-Game-CSharp-SplashKit-undo-feature-experimental-\obj\Debug\net8.0\ref\ChessGame.dll

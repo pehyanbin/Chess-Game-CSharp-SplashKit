@@ -1,5 +1,6 @@
 // Player.cs
 using SplashKitSDK;
+using System;
 
 public class Player
 {
@@ -35,7 +36,9 @@ public class Player
                 _selector.MovedToX,
                 _selector.MovedToY,
                 _selector.CapturedPiece != null,
-                isCastling
+                _selector.CapturedPiece,
+                isCastling,
+                _selector.MovedOriginalMoveCount
             );
         }
 
